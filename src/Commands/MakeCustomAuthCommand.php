@@ -91,6 +91,10 @@ class MakeCustomAuthCommand extends Command
             mkdir($directory, 0755, true);
         }
 
+        if (! is_dir($directory = resource_path('views/components'))) {
+            mkdir($directory, 0755, true);
+        }
+
         if (! is_dir($directory = resource_path('views/auth/passwords'))) {
             mkdir($directory, 0755, true);
         }
