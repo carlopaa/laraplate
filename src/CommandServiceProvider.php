@@ -4,8 +4,8 @@ namespace CarloPaa\LaraPlate;
 
 use Illuminate\Support\ServiceProvider;
 use CarloPaa\LaraPlate\Commands\MakeAvatarCommand;
-use CarloPaa\LaraPlate\Commands\MakeCardComponent;
 use CarloPaa\LaraPlate\Commands\MakeProfileCommand;
+use CarloPaa\LaraPlate\Commands\MakeComponentCommand;
 use CarloPaa\LaraPlate\Commands\UpdateModelsLocation;
 use CarloPaa\LaraPlate\Commands\MakeCustomAuthCommand;
 use CarloPaa\LaraPlate\Commands\UpdateMakeModelCommand;
@@ -25,7 +25,7 @@ class CommandServiceProvider extends ServiceProvider
                 MakeCustomAuthCommand::class,
                 UpdateModelsLocation::class,
                 MakeProfileCommand::class,
-                MakeCardComponent::class,
+                MakeComponentCommand::class,
                 MakeAvatarCommand::class
             ]);
         }

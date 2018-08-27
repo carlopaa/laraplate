@@ -40,8 +40,6 @@ class MakeCustomAuthCommand extends Command
         'layouts/partials/navigation.stub' => 'layouts/partials/navigation.blade.php',
         'layouts/partials/footer.stub' => 'layouts/partials/footer.blade.php',
         'home.stub' => 'home.blade.php',
-        'components/alert.stub' => 'components/alert.blade.php',
-        'layouts/partials/alert.stub' => 'layouts/partials/alert.blade.php',
     ];
 
     protected $controllers = [
@@ -74,7 +72,11 @@ class MakeCustomAuthCommand extends Command
         }
 
         if (! file_exists(resource_path('components/card.blade.php'))) {
-            $this->call('make:component:card');
+            $this->call('make:component card');
+        }
+
+        if (! file_exists(resource_path('components/alert.blade.php'))) {
+            $this->call('make:component alert');
         }
 
         $this->info('Authentication scaffolding generated successfully.');
@@ -88,10 +90,6 @@ class MakeCustomAuthCommand extends Command
     protected function createDirectories()
     {
         if (! is_dir($directory = resource_path('views/layouts/partials'))) {
-            mkdir($directory, 0755, true);
-        }
-
-        if (! is_dir($directory = resource_path('views/components'))) {
             mkdir($directory, 0755, true);
         }
 
