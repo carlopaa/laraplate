@@ -71,12 +71,12 @@ class MakeCustomAuthCommand extends Command
             );
         }
 
-        if (! file_exists(resource_path('components/card.blade.php'))) {
-            $this->call('make:component card');
+        if (! file_exists(resource_path('views/components/card.blade.php'))) {
+            $this->call('make:component', ['component' => 'card']);
         }
 
-        if (! file_exists(resource_path('components/alert.blade.php'))) {
-            $this->call('make:component alert');
+        if (! file_exists(resource_path('views/components/alert.blade.php'))) {
+            $this->call('make:component', ['component' => 'alert']);
         }
 
         $this->info('Authentication scaffolding generated successfully.');
