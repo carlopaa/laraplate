@@ -1,7 +1,7 @@
 {
     "name": "carlopaa/laraplate",
-    "description": "A laravel boilerplate with extended commands, presets and scaffolding.",
-    "keywords": ["laravel", "laravel preset", "bootstrap", "tailwind"],
+    "description": "Laravel boilerplate with extended artisan commands, presets and scaffolding.",
+    "keywords": ["laravel", "laravel preset", "bootstrap", "tailwind", "avatar", "boilerplate"],
     "license": "MIT",
     "authors": [
         {
