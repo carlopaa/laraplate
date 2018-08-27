@@ -1,0 +1,29 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                @component('components.card')
+                    @slot('image')
+                        <avatar-upload
+                            endpoint="{{ route('account.avatar.store') }}"
+                            send-as="avatar"
+                            current-avatar="{{ auth()->user()->avatar_path ?: asset('images/avatar.jpg') }}">
+                        </avatar-upload>
+                    @endslot
+
+                    <h4>{{ auth()->user()->name }}</h4>
+
+                    <p class="mb-0">
+                        {{ __('Joined ') . auth()->user()->created_at->format('F Y') }}
+                    </p>
+                @endcomponent
+            </div>
+            <div class="col-md-9">
+                @include('layouts.partials.alert')
+                @yield('content-account')
+            </div>
+        </div>
+    </div>
+@endsection

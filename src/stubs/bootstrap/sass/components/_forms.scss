@@ -1,0 +1,16 @@
+.form-control {
+    font-weight: 600;
+    height: calc(2.640625rem + 4px);
+    padding: 0.5rem 1rem;
+
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+
+.form-group {
+    label {
+        font-weight: 600;
+        color: $gray-800;
+    }
+}

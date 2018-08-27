@@ -1,0 +1,5 @@
+<footer class="footer py-5 bg-white shadow-sm text-center">
+    <div class="container">
+        &copy; {{ date('Y') }} Laraplate.
+    </div>
+</footer>

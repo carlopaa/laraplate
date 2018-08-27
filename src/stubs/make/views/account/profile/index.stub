@@ -1,0 +1,47 @@
+@extends('account.layouts.default')
+
+@section('content-account')
+    @component('components.card')
+        @slot('title')
+            {{ __('Profile') }}
+        @endslot
+
+        <form action="{{ route('account.profile.store') }}" method="post" class="form-ajax">
+            @csrf
+
+            <div class="form-group">
+                <label for="name">
+                    {{ __('Name') }}
+                </label>
+
+                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name', auth()->user()->name) }}" placeholder="Your name">
+
+                @if ($errors->has('name'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
+            </div>
+
+            <div class="form-group">
+                <label for="email">
+                    {{ __('Email') }}
+                </label>
+
+                <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email', auth()->user()->email) }}" placeholder="Your email">
+
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+            </div>
+
+            <div class="form-group mb-0 mt-4">
+                <button type="submit" class="btn btn-success py-2 px-4">
+                    {{ __('Save Changes') }}
+                </button>
+            </div>
+        </form>
+    @endcomponent
+@endsection

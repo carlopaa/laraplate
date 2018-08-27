@@ -1,0 +1,14 @@
+@extends('account.layouts.default')
+
+@section('content-account')
+    @component('components.card')
+        @slot('title')
+            {{ __('Account Overview') }}
+        @endslot
+
+        <p class="font-weight-bold mb-0">
+            {{ __('Welcome back') }}
+            {{ auth()->user()->name }}!
+        </p>
+    @endcomponent
+@endsection

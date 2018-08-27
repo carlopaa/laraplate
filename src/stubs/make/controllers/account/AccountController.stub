@@ -1,0 +1,23 @@
+<?php
+
+namespace {{namespace}}Http\Controllers\Account;
+
+use {{namespace}}Http\Controllers\Controller;
+
+class AccountController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the account index page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('account.index');
+    }
+}

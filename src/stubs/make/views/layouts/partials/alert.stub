@@ -1,0 +1,11 @@
+@if (session()->has('success'))
+    @component('components.alert', ['type' => 'success'])
+        {{ session('success') }}
+    @endcomponent
+@endif
+
+@if (session()->has('error'))
+    @component('components.alert', ['type' => 'danger'])
+        {{ session('error') }}
+    @endcomponent
+@endif

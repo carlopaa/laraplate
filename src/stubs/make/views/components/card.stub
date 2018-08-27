@@ -1,0 +1,21 @@
+<div class="card border-0 shadow-sm {{ @$class }}">
+    @if (isset($title))
+        <div class="card-header bg-white py-4">
+            <h4 class="h5 mb-0 card-title">
+                {{ $title }}
+            </h4>
+        </div>
+    @endif
+
+    {{ @$image }}
+
+    <div class="card-body">
+        {{ $slot }}
+    </div>
+
+    @if (isset($footer))
+        <div class="card-footer bg-white py-4 {{ @$footerClass }}">
+            {{ $footer }}
+        </div>
+    @endif
+</div>

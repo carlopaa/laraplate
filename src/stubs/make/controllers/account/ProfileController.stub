@@ -1,0 +1,34 @@
+<?php
+
+namespace {{namespace}}Http\Controllers\Account;
+
+use {{namespace}}Http\Controllers\Controller;
+use {{namespace}}Http\Requests\Account\ProfileStoreRequest;
+
+class ProfileController extends Controller
+{
+    public function index()
+    {
+        return view('account.profile.index');
+    }
+
+    public function store(ProfileStoreRequest $request)
+    {
+        auth()->user()->update([
+            'name' => $request->name,
+            'email' => $request->email
+        ]);
+
+        if ($request->ajax()) {
+            return response()->json([
+                'message' => $this->message()
+            ]);
+        }
+
+        return back()->withSuccess($this->message());
+    }
+
+    protected function message() {
+        return 'Profile has been successfully updated.';
+    }
+}

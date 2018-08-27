@@ -1,0 +1,26 @@
+{
+    "name": "carlopaa/laraplate",
+    "description": "A laravel boilerplate with extended commands, presets and scaffolding.",
+    "keywords": ["laravel", "laravel preset", "bootstrap", "tailwind"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carlo Garcia Paa",
+            "email": "codingprogress@outlook.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "CarloPaa\\LaraPlate\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CarloPaa\\LaraPlate\\PresetServiceProvider",
+                "CarloPaa\\LaraPlate\\CommandServiceProvider",
+            ]
+        }
+    }
+}

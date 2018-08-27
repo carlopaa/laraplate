@@ -1,0 +1,6 @@
+.btn {
+    &:focus,
+    &:active {
+        box-shadow: none;
+    }
+}

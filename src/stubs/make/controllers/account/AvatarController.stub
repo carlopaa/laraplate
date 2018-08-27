@@ -1,0 +1,37 @@
+<?php
+
+namespace {{namespace}}Http\Controllers\Account;
+
+use Image;
+use Storage;
+use Illuminate\Http\Request;
+use {{namespace}}Http\Controllers\Controller;
+use {{namespace}}Http\Requests\Account\AvatarStoreRequest;
+
+class AvatarController extends Controller
+{
+    public function store(AvatarStoreRequest $request)
+    {
+        $avatar = Image::make($request->file('avatar')->getPathName())
+            ->fit(300, 300, function ($constraint) {
+                $constraint->aspectRatio();
+            })->orientate();
+
+        return response(['data' => [
+            'avatar_path' => $this->storeImage($avatar)->avatar_path
+        ]], 200);
+    }
+
+    protected function storeImage($avatar)
+    {
+        Storage::disk('public')->put($path = 'avatar/' . uniqid(true) . '.png', (string) $avatar->encode('png'));
+
+        if ($old_avatar = auth()->user()->avatar_path) {
+            Storage::delete($old_avatar);
+        }
+
+        return tap(auth()->user())->update([
+            'avatar_path' => Storage::url($path)
+        ]);
+    }
+}

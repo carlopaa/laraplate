@@ -1,0 +1,51 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-6">
+                        @component('components.card')
+                            @slot('title')
+                                {{ __('Reset Password') }}
+                            @endslot
+
+                            @if (session('status'))
+                                <div class="alert alert-success">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+
+                            <form id="form_reset_password" method="POST" action="{{ route('password.email') }}" class="form-ajax">
+                                @csrf
+
+                                <div class="form-group">
+                                    <label for="email">
+                                        {{ __('Email address') }}
+                                    </label>
+
+                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="youremail@domain.com">
+
+                                    @if ($errors->has('email'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <hr>
+
+                                <div class="form-group mb-0">
+                                    <button type="submit" class="btn btn-primary py-2 btn-block">
+                                        {{ __('Send Password Reset Link') }}
+                                    </button>
+                                </div>
+                            </form>
+                        @endcomponent
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

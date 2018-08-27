@@ -1,0 +1,26 @@
+@import "variables";
+
+@import '~bootstrap/scss/bootstrap';
+
+// Components
+@import 'components/buttons';
+@import 'components/forms';
+
+a,
+.btn,
+input,
+button,
+.form-control {
+    &:focus {
+        outline: none;
+    }
+}
+
+.close {
+    opacity: 1;
+
+    > span {
+        color: #fff;
+        text-shadow: none;
+    }
+}
