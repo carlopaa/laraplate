@@ -10,6 +10,11 @@ use {{namespace}}Http\Requests\Account\AvatarStoreRequest;
 
 class AvatarController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function store(AvatarStoreRequest $request)
     {
         $avatar = Image::make($request->file('avatar')->getPathName())
