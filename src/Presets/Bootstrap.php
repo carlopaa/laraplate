@@ -28,24 +28,24 @@ class Bootstrap extends Preset
 
     public static function cleanDirectories()
     {
-        File::cleanDirectory(resource_path('assets/sass'));
+        File::cleanDirectory(resource_path('sass'));
     }
 
     public static function createDirectories()
     {
-        if (! is_dir($directory = resource_path('assets/sass/components'))) {
+        if (! is_dir($directory = resource_path('sass/components'))) {
             mkdir($directory);
         }
 
-        if (! is_dir($directory = resource_path('assets/js/modules'))) {
+        if (! is_dir($directory = resource_path('js/modules'))) {
             mkdir($directory);
         }
 
-        if (! is_dir($directory = resource_path('assets/js/store'))) {
+        if (! is_dir($directory = resource_path('js/store'))) {
             mkdir($directory);
         }
 
-        if (! is_dir($directory = resource_path('assets/js/mixins'))) {
+        if (! is_dir($directory = resource_path('js/mixins'))) {
             mkdir($directory);
         }
     }
@@ -69,7 +69,7 @@ class Bootstrap extends Preset
         foreach (self::$scripts as $stub => $script) {
             copy(
                 __DIR__ . '/../stubs/' . $stub,
-                resource_path('assets/js/' . $script)
+                resource_path('js/' . $script)
             );
         }
 
@@ -80,15 +80,15 @@ class Bootstrap extends Preset
         foreach (glob('*.js', GLOB_BRACE) as $script) {
             copy(
                 $path . $script,
-                resource_path('assets/js/modules/' . $script)
+                resource_path('js/modules/' . $script)
             );
         }
     }
 
     public static function updateSass()
     {
-        copy(__DIR__ . '/../stubs/bootstrap/sass/_variables.scss', resource_path('assets/sass/_variables.scss'));
-        copy(__DIR__ . '/../stubs/bootstrap/sass/app.scss', resource_path('assets/sass/app.scss'));
+        copy(__DIR__ . '/../stubs/bootstrap/sass/_variables.scss', resource_path('sass/_variables.scss'));
+        copy(__DIR__ . '/../stubs/bootstrap/sass/app.scss', resource_path('sass/app.scss'));
 
         /** Components */
         $path = __DIR__ . '/../stubs/bootstrap/sass/components/';
@@ -97,7 +97,7 @@ class Bootstrap extends Preset
         foreach (glob('*.scss', GLOB_BRACE) as $scss) {
             copy(
                 $path . $scss,
-                resource_path('assets/sass/components/' . $scss)
+                resource_path('sass/components/' . $scss)
             );
         }
     }
