@@ -12,6 +12,8 @@ class Bootstrap extends Preset
         'bootstrap/bootstrap.js' => 'bootstrap.js',
         'store.js' => 'store.js',
         'app.js' => 'app.js',
+        'store/validation.js' => 'store/validation.js',
+        'mixins/validation.js' => 'mixins/validation.js'
     ];
 
     public static function install()
@@ -36,6 +38,14 @@ class Bootstrap extends Preset
         }
 
         if (! is_dir($directory = resource_path('assets/js/modules'))) {
+            mkdir($directory);
+        }
+
+        if (! is_dir($directory = resource_path('assets/js/store'))) {
+            mkdir($directory);
+        }
+
+        if (! is_dir($directory = resource_path('assets/js/mixins'))) {
             mkdir($directory);
         }
     }
