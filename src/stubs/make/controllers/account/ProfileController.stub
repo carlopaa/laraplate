@@ -24,7 +24,7 @@ class ProfileController extends Controller
             'email' => $request->email
         ]);
 
-        if ($request->ajax()) {
+        if ($request->wantsJson()) {
             return response()->json([
                 'message' => $this->message()
             ]);

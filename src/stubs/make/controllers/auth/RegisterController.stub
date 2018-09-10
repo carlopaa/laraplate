@@ -81,7 +81,7 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
-        if ($request->ajax()) {
+        if ($request->wantsJson()) {
             return response()->json([
                 'message' => 'You are now registered.',
                 'redirect' => Redirect::intended($this->redirectPath())->getTargetUrl(),
