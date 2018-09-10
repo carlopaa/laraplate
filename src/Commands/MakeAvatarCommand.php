@@ -43,7 +43,7 @@ class MakeAvatarCommand extends Command
 
     protected function createDirectories()
     {
-        if (! is_dir($directory = resource_path('assets/js/mixins'))) {
+        if (! is_dir($directory = resource_path('js/mixins'))) {
             mkdir($directory, 0755, true);
         }
 
@@ -89,7 +89,7 @@ class MakeAvatarCommand extends Command
         foreach ($this->scripts as $key => $value) {
             copy(
                 __DIR__ . '/../stubs/make/vue/' . $key,
-                resource_path('assets/js/' . $value)
+                resource_path('js/' . $value)
             );
         }
     }
