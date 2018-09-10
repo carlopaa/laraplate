@@ -1,5 +1,6 @@
-import validation from './store/validation';
+import response from './store/response';
+import form from './store/form';
 
 export default {
-    validation
+    interceptor
 }

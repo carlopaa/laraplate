@@ -12,8 +12,12 @@ class Bootstrap extends Preset
         'bootstrap/bootstrap.js' => 'bootstrap.js',
         'store.js' => 'store.js',
         'app.js' => 'app.js',
-        'store/validation.js' => 'store/validation.js',
-        'mixins/validation.js' => 'mixins/validation.js'
+        'modules/ajaxify.js' => 'modules/ajaxify.js',
+        'modules/serialize.js' => 'modules/serialize.js',
+        'modules/extend.js' => 'modules/extend.js',
+        'store/form.js' => 'store/form.js',
+        'store/response.js' => 'store/response.js',
+        'mixins/interceptor.js' => 'mixins/interceptor.js'
     ];
 
     public static function install()
