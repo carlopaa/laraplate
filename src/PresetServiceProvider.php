@@ -16,13 +16,13 @@ class PresetServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        PresetCommand::macro('tailwind', function ($command) {
+        PresetCommand::macro('laraplate-tailwind', function ($command) {
             Tailwind::install();
 
             $this->info($command, 'Tailwind');
         });
 
-        PresetCommand::macro('bootstrap', function ($command) {
+        PresetCommand::macro('laraplate-bootstrap', function ($command) {
             Bootstrap::install();
 
             $this->info($command, 'Bootstrap');

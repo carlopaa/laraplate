@@ -11,14 +11,14 @@ class UpdateMakeModelCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'update:make:model';
+    protected $signature = 'laraplate:update:make:model';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Store models in Models directory.';
+    protected $description = 'Updates the default make:model command and store models in a Models directory.';
 
     /**
      * Create a new command instance.

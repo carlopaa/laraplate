@@ -4,21 +4,21 @@ namespace CarloPaa\LaraPlate\Commands;
 
 use Illuminate\Console\Command;
 
-class UpdateModelsLocation extends Command
+class UpdateModelUser extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'update:models';
+    protected $signature = 'laraplate:update:model-user';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Updates the default model path';
+    protected $description = 'Updates the default user model\'s namespace.';
 
     public function handle()
     {
@@ -32,15 +32,21 @@ class UpdateModelsLocation extends Command
             str_replace('|confirmed', '', file_get_contents(app_path('Http/Controllers/Auth/RegisterController.php')))
         );
 
-        file_put_contents(
-            app_path('Models/User.php'),
-            $this->userModel()
-        );
-        \File::delete(app_path('User.php'));
+        if (! is_dir($directory = app_path('Models'))) {
+            mkdir($directory);
+        }
 
-        $this->call('update:make:model');
+        if (file_exists(app_path('User.php'))) {
+            file_put_contents(
+                app_path('Models/User.php'),
+                $this->userModel()
+            );
+            \File::delete(app_path('User.php'));
+        }
 
-        $this->info('Models path updated successfully.');
+        $this->call('laraplate:update:make:model');
+
+        $this->info('User Model\'s namespace updated successfully.');
     }
 
     /**

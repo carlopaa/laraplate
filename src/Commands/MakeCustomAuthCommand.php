@@ -14,7 +14,7 @@ class MakeCustomAuthCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'make:custom:auth
+    protected $signature = 'laraplate:make:auth
                     {--views : Only scaffold the authentication views}
                     {--force : Overwrite existing views by default}';
 
@@ -73,11 +73,11 @@ class MakeCustomAuthCommand extends Command
         }
 
         if (! file_exists(resource_path('views/components/card.blade.php'))) {
-            $this->call('make:component', ['component' => 'card']);
+            $this->call('laraplate:make:component', ['component' => 'card']);
         }
 
         if (! file_exists(resource_path('views/components/alert.blade.php'))) {
-            $this->call('make:component', ['component' => 'alert']);
+            $this->call('laraplate:make:component', ['component' => 'alert']);
         }
 
         $this->info('Authentication scaffolding generated successfully.');

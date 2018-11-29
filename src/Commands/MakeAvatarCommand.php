@@ -9,7 +9,7 @@ class MakeAvatarCommand extends Command
 {
     use DetectsApplicationNamespace;
 
-    protected $signature = 'make:avatar';
+    protected $signature = 'laraplate:make:avatar';
 
     protected $description = 'Scaffold vue component and migration';
 

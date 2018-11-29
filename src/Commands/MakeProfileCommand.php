@@ -9,7 +9,7 @@ class MakeProfileCommand extends Command
 {
     use DetectsApplicationNamespace;
 
-    protected $signature = 'make:profile
+    protected $signature = 'laraplate:make:profile
                     {--views : Only scaffold the profile views}
                     {--force : Overwrite existing views by default}';
 

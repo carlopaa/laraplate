@@ -7,7 +7,7 @@ use Illuminate\Console\DetectsApplicationNamespace;
 
 class MakeComponentCommand extends Command
 {
-    protected $signature = 'make:component {component}';
+    protected $signature = 'laraplate:make:component {component}';
 
     protected $description = 'Generate a component scaffold (alert, card)';
 
