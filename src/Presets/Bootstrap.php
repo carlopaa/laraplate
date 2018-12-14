@@ -4,20 +4,12 @@ namespace CarloPaa\LaraPlate\Presets;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
-use Illuminate\Foundation\Console\Presets\Preset;
 
-class Bootstrap extends Preset
+class Bootstrap extends LaraplatePreset
 {
     protected static $scripts = [
         'bootstrap/bootstrap.js' => 'bootstrap.js',
-        'store.js' => 'store.js',
-        'app.js' => 'app.js',
-        'modules/ajaxify.js' => 'modules/ajaxify.js',
-        'modules/serialize.js' => 'modules/serialize.js',
-        'modules/extend.js' => 'modules/extend.js',
-        'store/form.js' => 'store/form.js',
-        'store/response.js' => 'store/response.js',
-        'mixins/interceptor.js' => 'mixins/interceptor.js'
+        'app.js' => 'app.js'
     ];
 
     public static function install()
@@ -27,7 +19,7 @@ class Bootstrap extends Preset
         static::updatePackages();
         static::updateMix();
         static::updateScripts();
-        static::updateSass();
+        static::createSass();
     }
 
     public static function cleanDirectories()
@@ -57,7 +49,13 @@ class Bootstrap extends Preset
     public static function updatePackageArray($packages)
     {
         return array_merge([
-            'vue-stash' => '^2.0.1-beta'
+            'vue-stash' => '^2.0.1-beta',
+            'laravel-mix' => '^4.0.6',
+            'bootstrap' => '^4.0.0',
+            'laravel-mix' => '^4.0.6',
+            'sass-loader' => '7.*',
+            'sass' => '^1.15.2',
+            'resolve-url-loader' => '3.0.0'
         ], Arr::except($packages, [
             'lodash'
         ]));
@@ -70,7 +68,7 @@ class Bootstrap extends Preset
 
     public static function updateScripts()
     {
-        foreach (self::$scripts as $stub => $script) {
+        foreach (array_merge(self::$global_scripts, self::$scripts) as $stub => $script) {
             copy(
                 __DIR__ . '/../stubs/' . $stub,
                 resource_path('js/' . $script)
@@ -89,7 +87,7 @@ class Bootstrap extends Preset
         }
     }
 
-    public static function updateSass()
+    public static function createSass()
     {
         copy(__DIR__ . '/../stubs/bootstrap/sass/_variables.scss', resource_path('sass/_variables.scss'));
         copy(__DIR__ . '/../stubs/bootstrap/sass/app.scss', resource_path('sass/app.scss'));
