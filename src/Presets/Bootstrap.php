@@ -63,43 +63,43 @@ class Bootstrap extends LaraplatePreset
 
     public static function updateMix()
     {
-        copy(__DIR__ . '/../stubs/webpack.mix.js', base_path('webpack.mix.js'));
+        copy(__DIR__.'/../stubs/webpack.mix.js', base_path('webpack.mix.js'));
     }
 
     public static function updateScripts()
     {
         foreach (array_merge(self::$global_scripts, self::$scripts) as $stub => $script) {
             copy(
-                __DIR__ . '/../stubs/' . $stub,
-                resource_path('js/' . $script)
+                __DIR__.'/../stubs/'.$stub,
+                resource_path('js/'.$script)
             );
         }
 
         // Import modules
-        $path = __DIR__ . '/../stubs/modules/';
+        $path = __DIR__.'/../stubs/modules/';
         chdir($path);
 
         foreach (glob('*.js', GLOB_BRACE) as $script) {
             copy(
-                $path . $script,
-                resource_path('js/modules/' . $script)
+                $path.$script,
+                resource_path('js/modules/'.$script)
             );
         }
     }
 
     public static function createSass()
     {
-        copy(__DIR__ . '/../stubs/bootstrap/sass/_variables.scss', resource_path('sass/_variables.scss'));
-        copy(__DIR__ . '/../stubs/bootstrap/sass/app.scss', resource_path('sass/app.scss'));
+        copy(__DIR__.'/../stubs/bootstrap/sass/_variables.scss', resource_path('sass/_variables.scss'));
+        copy(__DIR__.'/../stubs/bootstrap/sass/app.scss', resource_path('sass/app.scss'));
 
         /** Components */
-        $path = __DIR__ . '/../stubs/bootstrap/sass/components/';
+        $path = __DIR__.'/../stubs/bootstrap/sass/components/';
         chdir($path);
 
         foreach (glob('*.scss', GLOB_BRACE) as $scss) {
             copy(
-                $path . $scss,
-                resource_path('sass/components/' . $scss)
+                $path.$scss,
+                resource_path('sass/components/'.$scss)
             );
         }
     }

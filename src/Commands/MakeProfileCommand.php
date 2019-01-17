@@ -54,7 +54,7 @@ class MakeProfileCommand extends Command
 
             file_put_contents(
                 base_path('routes/web.php'),
-                file_get_contents(__DIR__ . '/../stubs/make/routes.account.stub'),
+                file_get_contents(__DIR__.'/../stubs/make/routes.account.stub'),
                 FILE_APPEND
             );
         }
@@ -103,7 +103,7 @@ class MakeProfileCommand extends Command
             }
 
             copy(
-                __DIR__ . '/../stubs/make/views/' . $key,
+                __DIR__.'/../stubs/make/views/'.$key,
                 $view
             );
         }
@@ -119,11 +119,11 @@ class MakeProfileCommand extends Command
             }
 
             file_put_contents(
-                app_path('Http/Controllers/' . $value),
+                app_path('Http/Controllers/'.$value),
                 str_replace(
                     '{{namespace}}',
                     $this->getAppNamespace(),
-                    file_get_contents(__DIR__ . '/../stubs/make/controllers/' . $key)
+                    file_get_contents(__DIR__.'/../stubs/make/controllers/'.$key)
                 )
             );
         }
@@ -139,11 +139,11 @@ class MakeProfileCommand extends Command
             }
 
             file_put_contents(
-                app_path('Http/Requests/' . $value),
+                app_path('Http/Requests/'.$value),
                 str_replace(
                     '{{namespace}}',
                     $this->getAppNamespace(),
-                    file_get_contents(__DIR__ . '/../stubs/make/requests/' . $key)
+                    file_get_contents(__DIR__.'/../stubs/make/requests/'.$key)
                 )
             );
         }
@@ -159,11 +159,11 @@ class MakeProfileCommand extends Command
             }
 
             file_put_contents(
-                app_path('Rules/' . $value),
+                app_path('Rules/'.$value),
                 str_replace(
                     '{{namespace}}',
                     $this->getAppNamespace(),
-                    file_get_contents(__DIR__ . '/../stubs/make/rules/' . $key)
+                    file_get_contents(__DIR__.'/../stubs/make/rules/'.$key)
                 )
             );
         }

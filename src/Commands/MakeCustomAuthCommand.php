@@ -67,7 +67,7 @@ class MakeCustomAuthCommand extends Command
 
             file_put_contents(
                 base_path('routes/web.php'),
-                file_get_contents(__DIR__ . '/../stubs/make/routes.stub'),
+                file_get_contents(__DIR__.'/../stubs/make/routes.stub'),
                 FILE_APPEND
             );
         }
@@ -118,7 +118,7 @@ class MakeCustomAuthCommand extends Command
             }
 
             copy(
-                __DIR__ . '/../stubs/make/views/'.$key,
+                __DIR__.'/../stubs/make/views/'.$key,
                 $view
             );
         }
@@ -126,7 +126,7 @@ class MakeCustomAuthCommand extends Command
 
     /**
      * Compiles controllers stub
-     * Overrides the default auth login and register controller
+     * Overrides the default auth login and register controller.
      *
      * @return void
      */
@@ -134,11 +134,11 @@ class MakeCustomAuthCommand extends Command
     {
         foreach ($this->controllers as $stub => $controller) {
             file_put_contents(
-                app_path('Http/Controllers/' . $controller),
+                app_path('Http/Controllers/'.$controller),
                 str_replace(
                     '{{namespace}}',
                     $this->getAppNamespace(),
-                    file_get_contents(__DIR__ . '/../stubs/make/controllers/' . $stub)
+                    file_get_contents(__DIR__.'/../stubs/make/controllers/'.$stub)
                 )
             );
         }

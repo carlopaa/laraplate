@@ -60,11 +60,11 @@ class MakeAvatarCommand extends Command
     {
         foreach ($this->controllers as $key => $value) {
             file_put_contents(
-                app_path('Http/Controllers/' . $value),
+                app_path('Http/Controllers/'.$value),
                 str_replace(
                     '{{namespace}}',
                     $this->getAppNamespace(),
-                    file_get_contents(__DIR__ . '/../stubs/make/controllers/' . $key)
+                    file_get_contents(__DIR__.'/../stubs/make/controllers/'.$key)
                 )
             );
         }
@@ -74,11 +74,11 @@ class MakeAvatarCommand extends Command
     {
         foreach ($this->requests as $key => $value) {
             file_put_contents(
-                app_path('Http/Requests/' . $value),
+                app_path('Http/Requests/'.$value),
                 str_replace(
                     '{{namespace}}',
                     $this->getAppNamespace(),
-                    file_get_contents(__DIR__ . '/../stubs/make/requests/' . $key)
+                    file_get_contents(__DIR__.'/../stubs/make/requests/'.$key)
                 )
             );
         }
@@ -88,15 +88,15 @@ class MakeAvatarCommand extends Command
     {
         foreach ($this->scripts as $key => $value) {
             copy(
-                __DIR__ . '/../stubs/make/vue/' . $key,
-                resource_path('js/' . $value)
+                __DIR__.'/../stubs/make/vue/'.$key,
+                resource_path('js/'.$value)
             );
         }
     }
 
     protected function exportMigrations()
     {
-        $path = __DIR__ . '/../stubs/make/migrations/';
+        $path = __DIR__.'/../stubs/make/migrations/';
         chdir($path);
 
         $migrations = glob('*.php', GLOB_BRACE);
@@ -107,8 +107,8 @@ class MakeAvatarCommand extends Command
 
         foreach ($migrations as $migration) {
             copy(
-                $path . $migration,
-                base_path('database/migrations/' . $migration)
+                $path.$migration,
+                base_path('database/migrations/'.$migration)
             );
         }
     }
@@ -116,7 +116,7 @@ class MakeAvatarCommand extends Command
     protected function exportAvatarImage()
     {
         copy(
-            __DIR__ . '/../stubs/images/avatar.jpg',
+            __DIR__.'/../stubs/images/avatar.jpg',
             public_path('images/avatar.jpg')
         );
     }

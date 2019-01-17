@@ -2,9 +2,9 @@
 
 namespace CarloPaa\LaraPlate;
 
+use Illuminate\Support\ServiceProvider;
 use CarloPaa\LaraPlate\Presets\Tailwind;
 use CarloPaa\LaraPlate\Presets\Bootstrap;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Console\PresetCommand;
 
 class PresetServiceProvider extends ServiceProvider
@@ -31,7 +31,7 @@ class PresetServiceProvider extends ServiceProvider
 
     protected function info($command, $preset)
     {
-        $command->info($preset . ' preset installed successfully.');
+        $command->info($preset.' preset installed successfully.');
         $command->warn('Please run "npm install && npm run dev" to compile your assets.');
     }
 }

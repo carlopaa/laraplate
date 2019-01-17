@@ -50,7 +50,7 @@ class UpdateModelUser extends Command
     }
 
     /**
-     * Update default namespaces
+     * Update default namespaces.
      */
     protected function updateNamespaces($files)
     {
@@ -63,7 +63,7 @@ class UpdateModelUser extends Command
     }
 
     /**
-     * Modify default namespace App\User - App\Models\User
+     * Modify default namespace App\User - App\Models\User.
      *
      * @param string $file
      * @return void
@@ -78,7 +78,7 @@ class UpdateModelUser extends Command
     }
 
     /**
-     * Modify default User Model namespace
+     * Modify default User Model namespace.
      *
      * @return void
      */

@@ -41,7 +41,7 @@ class UpdateMakeModelCommand extends Command
             mkdir($directory);
         }
 
-        copy(__DIR__ . '/../stubs/commands/MakeModelCommand.php', base_path('app/Console/Commands/MakeModelCommand.php'));
+        copy(__DIR__.'/../stubs/commands/MakeModelCommand.php', base_path('app/Console/Commands/MakeModelCommand.php'));
 
         $this->info('Model creation successfully updated.');
     }

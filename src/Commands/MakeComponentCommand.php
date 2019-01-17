@@ -3,7 +3,6 @@
 namespace CarloPaa\LaraPlate\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Console\DetectsApplicationNamespace;
 
 class MakeComponentCommand extends Command
 {
@@ -33,15 +32,15 @@ class MakeComponentCommand extends Command
 
         $this->exportComponent();
 
-        $this->info(ucfirst($this->argument('component')) . ' component generated successfully.');
+        $this->info(ucfirst($this->argument('component')).' component generated successfully.');
     }
 
     protected function exportComponent()
     {
         foreach ($this->components[$this->argument('component')] as $stub => $view) {
             copy(
-                __DIR__ . '/../stubs/make/views/' . $stub,
-                resource_path('views/' . $view)
+                __DIR__.'/../stubs/make/views/'.$stub,
+                resource_path('views/'.$view)
             );
         }
     }
